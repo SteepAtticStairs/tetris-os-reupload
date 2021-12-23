@@ -19,7 +19,18 @@
 - [ToaruOS](https://toaruos.org)
 - [James Molloy's Kernel Development Tutorials](http://www.jamesmolloy.co.uk/tutorial_html/)
 
-### Building & Running
+### Running
+A pre-compiled `iso` is included in this repo. To run this, do
+```
+$ git clone https://github.com/SteepAtticStairs/tetris-os-reupload.git
+
+$ cd tetris-os-reupload
+
+$ qemu-system-i386 -drive format=raw,file=boot.iso -d cpu_reset -monitor stdio -device sb16 -audiodev pulseaudio,id=pulseaudio,out.frequency=48000,out.channels=2,out.format=s32
+```
+**IF YOUR SOUND IS CHOPPY**: Disconnect your headphones, boot the iso, then reconnect.
+
+### Building
 ~~**NOTE**: This has *only* been tested in an emulator. Real hardware might not like it.~~
 
 EDIT: this is not true anymore! [@parkerlreed has run this on a Thinkpad T510](https://github.com/jdah/tetris-os/issues/5#issuecomment-824507979).
@@ -27,10 +38,9 @@ EDIT: this is not true anymore! [@parkerlreed has run this on a Thinkpad T510](h
 #### Mac OS
 For the cross-compiler: `$ brew tap nativeos/i386-elf-toolchain && brew install i386-elf-binutils i386-elf-gcc`
 
-**IF YOUR SOUND IS CHOPPY**: Disconnect your headphones, boot the iso, then reconnect.
-
 ```
 $ make iso
+
 $ qemu-system-i386 -drive format=raw,file=boot.iso -d cpu_reset -monitor stdio -device sb16 -audiodev coreaudio,id=coreaudio,out.frequency=48000,out.channels=2,out.format=s32
 ```
 
@@ -42,6 +52,7 @@ You should not need a cross-compiler in *most* cases as the `gcc` shipped in mos
 To run:
 ```
 $ make iso
+
 $ qemu-system-i386 -drive format=raw,file=boot.iso -d cpu_reset -monitor stdio -device sb16 -audiodev pulseaudio,id=pulseaudio,out.frequency=48000,out.channels=2,out.format=s32
 ```
 
