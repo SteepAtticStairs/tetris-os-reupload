@@ -19,7 +19,7 @@
 - [ToaruOS](https://toaruos.org)
 - [James Molloy's Kernel Development Tutorials](http://www.jamesmolloy.co.uk/tutorial_html/)
 
-### Running
+### Running (only tested on MacOS)
 A pre-compiled `iso` is included in this repo. To run this, do
 ```
 $ git clone https://github.com/SteepAtticStairs/tetris-os-reupload.git
